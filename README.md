@@ -1,8 +1,9 @@
 # E-and-I-Mobile-App
-Overview
+<h2>Overview</h2>
+<br>
 This mobile application facilitates seamless interaction between investors and entrepreneurs. It allows users to register, set up basic profiles, and connect with each other based on their interests. The app provides a straightforward and user-friendly interface with role-based dashboards, basic messaging, and notification features.
 
-Key Features
+<h2>Key Features</h2>
 User Registration and Role-Based Login
 
 Users can register as either an investor or entrepreneur.
@@ -31,5 +32,5 @@ In-app notifications for new messages and interest expressions.
 Installation & Setup
 Instructions for setting up the project locally, including environment configuration and dependencies.
 
-Contribution
+<h2>Contribution</h2>
 Guidelines for contributing to the project.
