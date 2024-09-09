@@ -29,7 +29,8 @@ No advanced messaging features or file sharing.
 Notifications
 
 In-app notifications for new messages and interest expressions.
-Installation & Setup
+<h2>Installation & Setup</h2>
+<br>
 Instructions for setting up the project locally, including environment configuration and dependencies.
 
 <h2>Contribution</h2>
