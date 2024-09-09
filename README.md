@@ -13,26 +13,32 @@ Secure email and password authentication.
 Role-based redirection to either the Investor Dashboard or Entrepreneur Dashboard.
 </ul>
 
-Profile Setup
-
+<b>Profile Setup</b>
+<ul>
 Investors: Set up a profile with a name, bio, investment interests, and profile picture.
 Entrepreneurs: Set up a profile with name, company name, business description, and the ability to upload a pitch deck (PDF or link).
-Search and List Display
+</ul>
 
+<b>Search and List Display </b>
+<ul>
 Investors can browse a list of entrepreneurs.
 Entrepreneurs can browse a list of investors.
 Basic listing without advanced filters.
-Interest Expression
-
+</ul>
+<b>Interest Expression</b>
+<ul>
 Entrepreneurs post business ideas.
 Investors express interest in ideas with a simple button click.
-Basic Messaging
-
+</ul>
+<b>Basic Messaging </b>
+<ul> 
 Investors and entrepreneurs can communicate via simple text messaging after expressing interest.
 No advanced messaging features or file sharing.
-Notifications
+</ul>
 
-In-app notifications for new messages and interest expressions.
+<b>Notifications </b>
+<ul>In-app notifications for new messages and interest expressions. </ul>
+
   
 </ol>
 <h2>Installation & Setup</h2>
