@@ -4,11 +4,15 @@
 This mobile application facilitates seamless interaction between investors and entrepreneurs. It allows users to register, set up basic profiles, and connect with each other based on their interests. The app provides a straightforward and user-friendly interface with role-based dashboards, basic messaging, and notification features.
 
 <h2>Key Features</h2>
-User Registration and Role-Based Login
+<ol>
 
+<b>User Registration and Role-Based Login</b>
+<ul>
 Users can register as either an investor or entrepreneur.
 Secure email and password authentication.
 Role-based redirection to either the Investor Dashboard or Entrepreneur Dashboard.
+</ul>
+
 Profile Setup
 
 Investors: Set up a profile with a name, bio, investment interests, and profile picture.
@@ -29,6 +33,8 @@ No advanced messaging features or file sharing.
 Notifications
 
 In-app notifications for new messages and interest expressions.
+  
+</ol>
 <h2>Installation & Setup</h2>
 <br>
 Instructions for setting up the project locally, including environment configuration and dependencies.
