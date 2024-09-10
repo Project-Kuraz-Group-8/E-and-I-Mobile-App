@@ -39,11 +39,11 @@ class RoleSelectionPage extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.attach_money, size: 50, color: Colors.white),
+                              Icon(Icons.attach_money, size: 100, color: Colors.black),
                               SizedBox(height: 10),
                               Text(
                                 'Investor',
-                                style: TextStyle(fontSize: 18, color: Colors.white),
+                                style: TextStyle(fontSize: 25, color: Colors.black),
                               ),
                             ],
                           ),
@@ -53,7 +53,7 @@ class RoleSelectionPage extends StatelessWidget {
                     SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/entrepreneur');
+                        Navigator.pushNamed(context, 'entrepreneur');
                       },
                       child: Container(
                         height: 222,
@@ -67,11 +67,11 @@ class RoleSelectionPage extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.business, size: 50, color: Colors.white),
+                              Icon(Icons.business, size: 100, color: Colors.black),
                               SizedBox(height: 10),
                               Text(
                                 'Entrepreneur',
-                                style: TextStyle(fontSize: 18, color: Colors.white),
+                                style: TextStyle(fontSize: 25, color: Colors.black),
                               ),
                             ],
                           ),
