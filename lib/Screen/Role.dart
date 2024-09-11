@@ -1,5 +1,19 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Role Selection',
+      home: RoleSelectionPage(),
+    );
+  }
+}
+
 class RoleSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,7 +39,28 @@ class RoleSelectionPage extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'investor');
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => InvestorPage(),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              // Define the offset for the slide transition
+                              const begin = Offset(1.0, 0.0); // Start from right
+                              const end = Offset.zero; // End at the center
+                              const curve = Curves.easeInOut; // Easing curve for smooth transition
+
+                              // Create the tween and animation
+                              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                              var offsetAnimation = animation.drive(tween);
+
+                              return SlideTransition(
+                                position: offsetAnimation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+
                       },
                       child: Container(
                         height: 222,
@@ -53,7 +88,28 @@ class RoleSelectionPage extends StatelessWidget {
                     SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'entrepreneur');
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) => EntrepreneurPage(),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              // Define the offset for the slide transition
+                              const begin = Offset(1.0, 0.0); // Start from right
+                              const end = Offset.zero; // End at the center
+                              const curve = Curves.easeInOut; // Easing curve for smooth transition
+
+                              // Create the tween and animation
+                              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                              var offsetAnimation = animation.drive(tween);
+
+                              return SlideTransition(
+                                position: offsetAnimation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+
                       },
                       child: Container(
                         height: 222,
@@ -90,7 +146,6 @@ class RoleSelectionPage extends StatelessWidget {
 }
 
 class InvestorPage extends StatelessWidget {
-  String id = 'investor';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

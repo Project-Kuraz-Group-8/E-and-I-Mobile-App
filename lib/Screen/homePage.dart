@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.only(top: 50.0,left: 20.0),
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,6 +47,7 @@ class HomePage extends StatelessWidget {
                         fontSize: 32,
                       ),
                     ),
+                    Center(child: Image.asset('images/fr2.png')),
                   ],
                 ),
               ),
@@ -66,9 +67,33 @@ class HomePage extends StatelessWidget {
                   // Button action here
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RoleSelectionPage()),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => RoleSelectionPage(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        // Slide transition: Slide from right to left
+                        var slideAnimation = Tween<Offset>(
+                          begin: Offset(1.0, 0.0), // Slide from right
+                          end: Offset.zero, // To the center (no offset)
+                        ).animate(animation);
+
+                        // Fade transition
+                        var fadeAnimation = Tween<double>(
+                          begin: 0.0, // Fully transparent
+                          end: 1.0, // Fully visible
+                        ).animate(animation);
+
+                        return SlideTransition(
+                          position: slideAnimation,
+                          child: FadeTransition(
+                            opacity: fadeAnimation,
+                            child: child,
+                          ),
+                        );
+                      },
+                    ),
                   );
                 },
+
                 child: Text(
                   'Get started',
                   style: TextStyle(
