@@ -5,7 +5,7 @@ This mobile application facilitates seamless connections between **Investors** a
 
 ---
 
-## 1.5 Main Features
+##  Main Features
 
 ### 1. User Registration and Role-Based Login
 **Description:**  
