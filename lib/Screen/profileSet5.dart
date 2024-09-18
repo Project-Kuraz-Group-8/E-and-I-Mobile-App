@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hasab/Screen/mainpage1.dart';
 import 'package:lottie/lottie.dart';
 
 
@@ -38,7 +39,11 @@ class _LastPageState extends State<LastPage> {
               width: double.infinity, // Full width of the screen
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle continue action
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BottomNavigationExample()),
+                  );
+                  // Handle next action
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF264065), // Background color
