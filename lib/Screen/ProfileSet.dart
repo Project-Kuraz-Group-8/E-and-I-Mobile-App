@@ -17,8 +17,8 @@ class ProfileSetupScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // 1st: Text message
-                Padding(
-                  padding: const EdgeInsets.only(top: 10.0,left: 5.0,right: 13),
+                const Padding(
+                  padding: EdgeInsets.only(top: 10.0,left: 5.0,right: 13),
                   child: Text(
                     'Finish setting up your profile to explore opportunities',
                     textAlign: TextAlign.start,
@@ -28,7 +28,7 @@ class ProfileSetupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 // 2nd: Animation from the link using Lottie
                 Lottie.network(
@@ -37,7 +37,7 @@ class ProfileSetupScreen extends StatelessWidget {
                   width: 330,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 // 3rd: Two buttons (Continue and Skip for now)
                 Column(
@@ -69,25 +69,25 @@ class ProfileSetupScreen extends StatelessWidget {
                         // Continue action
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF264065), // Background color
-                        minimumSize: Size(double.infinity, 50), // Button width increased (infinity for full width)
-                        padding: EdgeInsets.symmetric(vertical: 15), // Vertical padding adjusted
+                        backgroundColor: const Color(0xFF264065), // Background color
+                        minimumSize: const Size(double.infinity, 50), // Button width increased (infinity for full width)
+                        padding: const EdgeInsets.symmetric(vertical: 15), // Vertical padding adjusted
                       ),
-                      child: Text(
+                      child: const Text(
                         'Continue',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
-                    SizedBox(height: 18,),
+                    const SizedBox(height: 18,),
                     OutlinedButton(
                       onPressed: () {
                         // Skip for now action
                       },
                       style: OutlinedButton.styleFrom(
-                        minimumSize: Size(double.infinity, 50),
-                        padding: EdgeInsets.symmetric( vertical: 15),
+                        minimumSize: const Size(double.infinity, 50),
+                        padding: const EdgeInsets.symmetric( vertical: 15),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Skip for now',
                         style: TextStyle(fontSize: 16),
                       ),
