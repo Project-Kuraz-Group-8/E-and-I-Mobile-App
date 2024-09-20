@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hasab/Screen/ideaPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   static List<Widget> _pages = <Widget>[
     const Center(child: Text('Home')),
     PeopleScreen(),
-    const Center(child: Text('Ideas')),
+    IdeaPage(),
     const Center(child: Text('Inbox')),
   ];
 
@@ -528,3 +529,4 @@ class CustomMinusIcon extends StatelessWidget {
     );
   }
 }
+

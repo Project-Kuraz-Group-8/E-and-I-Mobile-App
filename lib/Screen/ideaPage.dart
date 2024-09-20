@@ -11,59 +11,40 @@ class IdeaPage extends StatefulWidget {
 class _IdeaPageState extends State<IdeaPage> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Scaffold(
+    return Scaffold(
+      backgroundColor: Color(0xffF5F9FF),
         appBar: AppBar(
-
-          title:  Row(
-            children: [
-              IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-                size: 30,
-              ),
-                onPressed: (){
-                Navigator.pop(context);
-                },
-        ),
-              const Center(
-                child: Text(
-                  'My ideas',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 30,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-            onPressed:(){
-              Navigator.push(context,
-              MaterialPageRoute(builder: (context){
-                return const AddIdeaPage();
-              }));
-            },
-          backgroundColor: const Color(0xff264065),
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-        ),
-        body: const Column(
-          children: [
-            Center(
-              child: Text(
-                'Ideas',
-
-              )
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: const Text(
+            'My ideas',
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
-
-          ],
-        )
+          ),
+        ),
+      floatingActionButton: FloatingActionButton(
+          onPressed:(){
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context){
+              return AddIdeaPage();
+            }));
+          },
+        backgroundColor: const Color(0xff264065),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
+      body: const Column(
+        children: [
+
+
+        ],
+      )
     );
   }
 }
