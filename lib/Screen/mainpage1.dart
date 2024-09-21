@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hasab/Screen/founderHomePage.dart';
 import 'package:hasab/Screen/ideaPage.dart';
 
 void main() {
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'inter'),
       home: BottomNavigationExample(),
     );
   }
@@ -24,7 +26,7 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   int _selectedIndex = 0;
 
   static List<Widget> _pages = <Widget>[
-    const Center(child: Text('Home')),
+    FounderPage(),
     PeopleScreen(),
     IdeaPage(),
     const Center(child: Text('Inbox')),
