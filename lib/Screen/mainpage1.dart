@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hasab/Screen/ideaPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,10 +23,10 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   int _selectedIndex = 0;
 
   static List<Widget> _pages = <Widget>[
-    const Center(child: Text('Home')),
+    Center(child: Text('Home')),
     PeopleScreen(),
-    IdeaPage(),
-    const Center(child: Text('Inbox')),
+    Center(child: Text('Ideas')),
+    Center(child: Text('Inbox')),
   ];
 
   void _onItemTapped(int index) {
@@ -44,7 +43,7 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
-        backgroundColor: const Color(0xFFFFFFFF), // Navigation bar color #FFFFFF
+        backgroundColor: Color(0xFFFFFFFF), // Navigation bar color #FFFFFF
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -84,7 +83,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'People',
           style: TextStyle(
             fontSize: 32,
@@ -120,10 +119,10 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: Icon(Icons.search),
                 suffixIcon: CustomMinusIcon(),
                 hintText: 'Search',
                 filled: true,
@@ -134,12 +133,12 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             _showInvestors ? _buildInvestorsList() : _buildCoFoundersList(),
           ],
         ),
       ),
-      backgroundColor: const Color(0xFFF5F9FF), // Blue-white tone for background
+      backgroundColor: Color(0xFFF5F9FF), // Blue-white tone for background
     );
   }
 
@@ -155,11 +154,11 @@ class _PeopleScreenState extends State<PeopleScreen> {
             ? Colors.white // White text for active button
             : Colors.black,
         backgroundColor: isActive
-            ? const Color(0xFF264065) // Active color #264065
-            : const Color(0xFFD9D9D9),
-        fixedSize: const Size(156, 40), // Fixed width (156px) and height (40px)
+            ? Color(0xFF264065) // Active color #264065
+            : Color(0xFFD9D9D9),
+        fixedSize: Size(156, 40), // Fixed width (156px) and height (40px)
         padding: EdgeInsets.zero,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
           ),
@@ -182,14 +181,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
               padding: const EdgeInsets.fromLTRB(8, 12, 8, 8), // Adjusted gap from top
               decoration: BoxDecoration(
                 color: Colors.white, // #FFFFFF for profile container
-                borderRadius: const BorderRadius.all(
+                borderRadius: BorderRadius.all(
                   Radius.circular(16.0), // Border-radius (16px, 0px, 0px, 0px)
                 ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),
                     blurRadius: 10,
-                    offset: const Offset(0, 5),
+                    offset: Offset(0, 5),
                   ),
                 ],
               ),
@@ -198,13 +197,13 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 children: [
                   Row(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 25, // width and height of CircleAvatar (50px)
                         backgroundImage: NetworkImage(
                             'https://via.placeholder.com/150'), // Replace with actual image
                       ),
-                      const SizedBox(width: 12), // No gap between avatar and name
-                      const Expanded(
+                      SizedBox(width: 12), // No gap between avatar and name
+                      Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start, // Align name to the start
                           children: [
@@ -223,7 +222,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8.0, right: 8.0),
                           child: IconButton(
-                            icon: const Icon(Icons.more_vert),
+                            icon: Icon(Icons.more_vert),
                             onPressed: () {
                               // Profile actions
                             },
@@ -232,18 +231,18 @@ class _PeopleScreenState extends State<PeopleScreen> {
                       ),
                     ],
                   ),
-                  const Spacer(), // Push the buttons to the bottom of the container
+                  Spacer(), // Push the buttons to the bottom of the container
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end, // Align buttons to the left
                     children: [
                       _buildSkillButton('Design', color: Colors.white),
-                      const SizedBox(width: 5), // 4px gap between the first two buttons
+                      SizedBox(width: 5), // 4px gap between the first two buttons
                       _buildSkillButton('User Experience', color: Colors.white),
-                      const SizedBox(width: 9),
+                      SizedBox(width: 9),
                       _buildSkillButton(
                         'Seed',
-                        color: const Color(0xFFEFE0F5), // Color for "Seed" button
-                        textColor: const Color(0xFFC76CEC),
+                        color: Color(0xFFEFE0F5), // Color for "Seed" button
+                        textColor: Color(0xFFC76CEC),
                       ),
                     ],
                   ),
@@ -261,14 +260,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'Recommended for you',
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Container(
             height: 280, // Height for the profile container
             child: ListView.builder(
@@ -278,9 +277,9 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 return Container(
                   width: 212.85, // Set width Hug (212.85px)
                   height: 280, // Set height Hug (280px)
-                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                  margin: const EdgeInsets.only(right: 8),
-                  decoration: const BoxDecoration(
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                  margin: EdgeInsets.only(right: 8),
+                  decoration: BoxDecoration(
                     color: Color(0xFFFFFFFF), // Background color #FFFFFF
                     borderRadius: BorderRadius.all(
                        Radius.circular(16),
@@ -296,7 +295,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Row(
+                      Row(
                         children: [
                           CircleAvatar(
                             radius: 40,
@@ -324,16 +323,16 @@ class _PeopleScreenState extends State<PeopleScreen> {
 
                         ],
                       ),
-                      const SizedBox(height: 8),
-                      const Text('Lorem ipsum dolor sit amet consectetur. Amet tellus sit magnis velit. adipiscing ipsum facilisi malesuada.'),
-                      const Divider(color: Colors.grey),
+                      SizedBox(height: 8),
+                      Text('Lorem ipsum dolor sit amet consectetur. Amet tellus sit magnis velit. adipiscing ipsum facilisi malesuada.'),
+                      Divider(color: Colors.grey),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _buildSkillButton('Design', color: const Color(0xFFFFFFFF)),
+                          _buildSkillButton('Design', color: Color(0xFFFFFFFF)),
                           _buildSkillButton(
                             'User Experience',
-                            color: const Color(0xFFFFFFFF),
+                            color: Color(0xFFFFFFFF),
                           ),
                         ],
                       ),
@@ -342,12 +341,12 @@ class _PeopleScreenState extends State<PeopleScreen> {
                         children: [
                           _buildSkillButton(
                             'Connect',
-                            color: const Color(0xFF264065),
+                            color: Color(0xFF264065),
                             textColor: Colors.white,
                           ),
                           _buildSkillButton(
                             'View Profile',
-                            color: const Color(0xFFD9D9D9),
+                            color: Color(0xFFD9D9D9),
                           ),
                         ],
                       ),
@@ -357,15 +356,15 @@ class _PeopleScreenState extends State<PeopleScreen> {
               },
             ),
           ),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: 16),
+          Text(
             'Connected',
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Expanded(
             child: ListView.builder(
               itemCount: 3, // Replace with actual data
@@ -376,7 +375,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                     width: 328, // Set width 328px
                     height: 82, // Set height 82px
                     padding: const EdgeInsets.fromLTRB(13, 8, 6, 0),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF), // Background color #FFFFFF
                       borderRadius: BorderRadius.all(
                          Radius.circular(16),
@@ -394,18 +393,18 @@ class _PeopleScreenState extends State<PeopleScreen> {
                       children: [
                         Row(
                           children: [
-                            const CircleAvatar(
+                            CircleAvatar(
                               radius: 25,
                               backgroundImage: NetworkImage(
                                   'https://via.placeholder.com/150'),
                             ),
-                            const SizedBox(width: 8,),
-                            const Text('Hemen Daniel',style: TextStyle(fontSize: 25),),
-                            const SizedBox(width: 70,),
+                            SizedBox(width: 8,),
+                            Text('Hemen Daniel',style: TextStyle(fontSize: 25),),
+                            SizedBox(width: 70,),
                             Align(
                               alignment: Alignment.topRight,
                               child: IconButton(
-                                icon: const Icon(Icons.more_vert),
+                                icon: Icon(Icons.more_vert),
                                 onPressed: () {
                                   // Action for the three dots button
                                 },
@@ -413,12 +412,12 @@ class _PeopleScreenState extends State<PeopleScreen> {
                             ),
                           ],
                         ),
-                        const SizedBox(width: 4),
+                        SizedBox(width: 4),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
 
-                            const Row(
+                            Row(
                               children: [
                                 SizedBox(width: 50,),
                                 Icon(Icons.access_time, size: 16),
@@ -438,13 +437,13 @@ class _PeopleScreenState extends State<PeopleScreen> {
                             Row(
                               children: [
                                 Container(
-                                  padding: const EdgeInsets.symmetric(
+                                  padding: EdgeInsets.symmetric(
                                       horizontal: 4, vertical: 2),
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFF8EDCD), // Background color for text
+                                    color: Color(0xFFF8EDCD), // Background color for text
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: const Row(
+                                  child: Row(
                                     children: [
                                       Icon(
                                         Icons.lightbulb_outline,
@@ -483,7 +482,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
         Color? textColor,
       }) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
         color: color ?? Colors.grey[300],
         borderRadius: BorderRadius.circular(8),
@@ -512,13 +511,13 @@ class CustomMinusIcon extends StatelessWidget {
             height: 2,
             color: Colors.black,
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Container(
             width: 12,
             height: 2,
             color: Colors.black,
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Container(
             width: 8,
             height: 2,
@@ -529,4 +528,3 @@ class CustomMinusIcon extends StatelessWidget {
     );
   }
 }
-

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hasab/Screen/ProfileSet.dart';
-import 'package:hasab/Screen/signUpPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,20 +19,20 @@ class RoleSelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Select Role')),
+      appBar: AppBar(title: Text('Select Role')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const Text(
+            Text(
               'I am an',
               style: TextStyle(fontSize: 60),
             ),
-            const Text(
+            Text(
               'Select one that applies to you',
               style: TextStyle(fontSize: 25),
             ),
-            const SizedBox(height: 0),
+            SizedBox(height: 0),
             Expanded(
               child: Center(
                 child: Column(
@@ -44,8 +43,7 @@ class RoleSelectionPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            //TODO pass parameter
-                            pageBuilder: (context, animation, secondaryAnimation) => const SignUpPage(),
+                            pageBuilder: (context, animation, secondaryAnimation) => ProfileSetupScreen(),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               // Define the offset for the slide transition
                               const begin = Offset(1.0, 0.0); // Start from right
@@ -69,11 +67,11 @@ class RoleSelectionPage extends StatelessWidget {
                         height: 222,
                         width: 168,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFA3D1ED),
+                          color: Color(0xFFA3D1ED),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(16.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -88,14 +86,13 @@ class RoleSelectionPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            //TODO pass parameter
-                            pageBuilder: (context, animation, secondaryAnimation) => const SignUpPage(),
+                            pageBuilder: (context, animation, secondaryAnimation) => EntrepreneurPage(),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               // Define the offset for the slide transition
                               const begin = Offset(1.0, 0.0); // Start from right
@@ -119,11 +116,11 @@ class RoleSelectionPage extends StatelessWidget {
                         height: 222,
                         width: 168,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFA9D6CB),
+                          color: Color(0xFFA9D6CB),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.all(16.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -145,6 +142,26 @@ class RoleSelectionPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class InvestorPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Investor Page')),
+      body: Center(child: Text('Welcome, Investor!')),
+    );
+  }
+}
+
+class EntrepreneurPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Entrepreneur Page')),
+      body: Center(child: Text('Welcome, Entrepreneur!')),
     );
   }
 }

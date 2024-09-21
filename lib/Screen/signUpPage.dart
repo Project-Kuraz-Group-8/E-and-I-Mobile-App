@@ -8,7 +8,6 @@ class SignUpPage extends StatefulWidget {
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
-
 class _SignUpPageState extends State<SignUpPage> {
   bool? isChecked = false;
   bool showPassword = false;
