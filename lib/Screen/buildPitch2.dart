@@ -9,8 +9,12 @@ class BuildPitch2 extends StatefulWidget {
   State<BuildPitch2> createState() => _BuildPitch2State();
 }
 
+enum InvestmentContract { futureEquity, convertibleNote, revenueShare, simpleLoan, preferredStock , other}
+
+
 class _BuildPitch2State extends State<BuildPitch2> {
 
+  InvestmentContract? contract = InvestmentContract.futureEquity;
 
   var firstName = 'Hiwot';
   var lastName = 'Tadesse';
@@ -377,10 +381,83 @@ class _BuildPitch2State extends State<BuildPitch2> {
               ),
 
 
+    ListTile(
+    title: const Text('Future Equity'),
+    leading: Radio<InvestmentContract>(
+    value: InvestmentContract.futureEquity,
+    groupValue: contract,
+    onChanged: (InvestmentContract? value) {
+      setState(() {
+        contract=value;
+      });
+    },
+    ),
+    ),
+              ListTile(
+                title: const Text('Convertible Note'),
+                leading: Radio<InvestmentContract>(
+                  value: InvestmentContract.convertibleNote,
+                  groupValue: contract,
+                  onChanged: (InvestmentContract? value) {
+                    setState(() {
+                      contract=value;
+                    });
+                  },
+                ),
+              ),
+
+              ListTile(
+                title: const Text('Revenue Share'),
+                leading: Radio<InvestmentContract>(
+                  value: InvestmentContract.revenueShare,
+                  groupValue: contract,
+                  onChanged: (InvestmentContract? value) {
+                    setState(() {
+                      contract=value;
+                    });
+                  },
+                ),
+              ),
+              ListTile(
+                title: const Text('Simple Loan'),
+                leading: Radio<InvestmentContract>(
+                  value: InvestmentContract.simpleLoan,
+                  groupValue: contract,
+                  onChanged: (InvestmentContract? value) {
+                    setState(() {
+                      contract=value;
+                    });
+                  },
+                ),
+              ),
+
+              ListTile(
+                title: const Text('Preferred Stock'),
+                leading: Radio<InvestmentContract>(
+                  value: InvestmentContract.preferredStock,
+                  groupValue: contract,
+                  onChanged: (InvestmentContract? value) {
+                    setState(() {
+                      contract=value;
+                    });
+                  },
+                ),
+              ),
+              ListTile(
+                title: const Text("Other/I don't know yet"),
+                leading: Radio<InvestmentContract>(
+                  value: InvestmentContract.other,
+                  groupValue: contract,
+                  onChanged: (InvestmentContract? value) {
+                    setState(() {
+                      contract=value;
+                    });
+                  },
+                ),
+              ),
 
 
-
-            ],
+    ],
           ),
         ),
       ),
