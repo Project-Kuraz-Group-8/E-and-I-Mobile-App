@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hasab/Screen/mainpage1.dart';
+import 'package:hasab/Screen/investorscreens/mainpage1.dart';
+import 'package:hasab/Screen/investorscreens/profileSet2.dart';
 import 'package:lottie/lottie.dart';
 import 'package:hasab/Screen/ProfileSet2.dart';
 
 
-class ProfileSetupScreen extends StatelessWidget {
+class ProfileSetupScreeni extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +50,7 @@ class ProfileSetupScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => FirstPage(),
+                            pageBuilder: (context, animation, secondaryAnimation) => FirstPagei(),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               // Define the offset for the slide transition
                               const begin = Offset(1.0, 0.0); // Start from right
@@ -84,7 +85,24 @@ class ProfileSetupScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => BottomNavigationExample()),
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) =>  HomePage(),
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                              // Define the offset for the slide transition
+                              const begin = Offset(1.0, 0.0); // Start from right
+                              const end = Offset.zero; // End at the center
+                              const curve = Curves.easeInOut; // Easing curve for smooth transition
+
+                              // Create the tween and animation
+                              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                              var offsetAnimation = animation.drive(tween);
+
+                              return SlideTransition(
+                                position: offsetAnimation,
+                                child: child,
+                              );
+                            },
+                          ),
                         );
                         // Skip for now action
                       },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hasab/Screen/Role.dart';
+import 'package:hasab/Screen/signUpPage.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -68,7 +69,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) => RoleSelectionPage(),
+                      pageBuilder: (context, animation, secondaryAnimation) => SignUpPage(),
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         // Slide transition: Slide from right to left
                         var slideAnimation = Tween<Offset>(
