@@ -1,6 +1,7 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-
-
 
 class BuildPitch2 extends StatefulWidget {
   const BuildPitch2({super.key});
@@ -9,17 +10,27 @@ class BuildPitch2 extends StatefulWidget {
   State<BuildPitch2> createState() => _BuildPitch2State();
 }
 
-enum InvestmentContract { futureEquity, convertibleNote, revenueShare, simpleLoan, preferredStock , other}
-
+enum InvestmentContract {
+  futureEquity,
+  convertibleNote,
+  revenueShare,
+  simpleLoan,
+  preferredStock,
+  other
+}
 
 class _BuildPitch2State extends State<BuildPitch2> {
-
   InvestmentContract? contract = InvestmentContract.futureEquity;
+  FilePickerResult? result;
+
 
   var firstName = 'Hiwot';
   var lastName = 'Tadesse';
   var email = 'hiwottadesse3@gmail.com';
   var role = 'Founder';
+  var titleAtCompany;
+  var accomplishments;
+  File? file;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +79,8 @@ class _BuildPitch2State extends State<BuildPitch2> {
               Container(
                 width: double.infinity,
                 height: 120,
-                margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 decoration: BoxDecoration(
                     color: Colors.white60,
                     shape: BoxShape.rectangle,
@@ -76,7 +88,6 @@ class _BuildPitch2State extends State<BuildPitch2> {
                       color: Colors.lightBlueAccent,
                       width: 0.4,
                     )),
-
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -89,28 +100,28 @@ class _BuildPitch2State extends State<BuildPitch2> {
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
                         )),
-
                     const SizedBox(
                       height: 15,
                     ),
-
-                const Text(
-                  'accepted files: .ppt, .pptx, .pdf - max 100MB',
-                  style: TextStyle(
-                    fontSize: 14,
-                    height: 2,
-                    color: Colors.black54,
-                    fontWeight: FontWeight.w500,
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-
-                  const SizedBox(
-                    height: 15,
-                  ),
-
+                    const Text(
+                      'accepted files: .ppt, .pptx, .pdf - max 100MB',
+                      style: TextStyle(
+                        fontSize: 14,
+                        height: 2,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
                     GestureDetector(
-                      onTap: () async {},
+                      onTap: () {
+
+                        getFile();
+
+                      },
                       child: const Text(
                         'Browse files',
                         style: TextStyle(
@@ -122,10 +133,11 @@ class _BuildPitch2State extends State<BuildPitch2> {
                         ),
                       ),
                     ),
+                  //TODO display
+
                   ],
                 ),
               ),
-
               const Text(
                 'Team',
                 style: TextStyle(
@@ -134,11 +146,9 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   fontSize: 30,
                 ),
               ),
-
               const SizedBox(
                 height: 15,
               ),
-
               const Text(
                 'Add the core members of your start-up team. Every member should have a photo and some kind of accomplishment.',
                 style: TextStyle(
@@ -147,159 +157,131 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   fontSize: 20,
                 ),
               ),
-
               Container(
-
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(vertical: 15),
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                 decoration: BoxDecoration(
                     color: Colors.white60,
-                  borderRadius: BorderRadius.circular(16),
-                  border: Border.all(
-                    color: Colors.lightBlueAccent,
-                    width: 0.6,
-                  )
-                ),
-
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: Colors.lightBlueAccent,
+                      width: 0.6,
+                    )),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
                     Row(
                       children: [
                         const CircleAvatar(
-                          radius:50,
+                          radius: 50,
                           backgroundImage: AssetImage(
                             'images/avatar.png',
                           ),
                           backgroundColor: Colors.transparent,
                         ),
-
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                               '$firstName $lastName ',
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                                height: 1.5,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                '$firstName $lastName ',
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                  height: 1.5,
+                                ),
                               ),
-
-                            ),
-                            Text(
-                               '$email ',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                                height: 1.5,
+                              Text(
+                                '$email ',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                  height: 1.5,
+                                ),
                               ),
-
-                            ),
-
-                            Text(
-                               '$role',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.black,
-                                height: 1.5,
+                              Text(
+                                role,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                  height: 1.5,
+                                ),
                               ),
-
-                            ),
-
-                          ]
-                        ),
-
+                            ]),
                       ],
                     ),
-
                     TextField(
                       style: const TextStyle(
                         fontSize: 20,
                       ),
-                      onChanged: (value){
-                      },
+                      onChanged: (value) {
+                        titleAtCompany=value;                      },
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 10),
                           filled: true,
                           fillColor: const Color(0xffF1F5FD),
                           labelText: 'Title at company',
                           border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(15),
-                          )
-                      ),
+                          )),
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
-
                     TextField(
                       style: const TextStyle(
                         fontSize: 20,
                       ),
-                      onChanged: (value){
+                      onChanged: (value) {
+                        accomplishments=value;
                       },
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 10),
                           filled: true,
                           fillColor: const Color(0xffF1F5FD),
                           labelText: 'Accomplishments',
                           border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(15),
-                          )
-                      ),
+                          )),
                     ),
-
                   ],
                 ),
               ),
-
               TextButton(
-
-                  onPressed: (){
+                  onPressed: () {
                     addTeamMember();
-              },
-
-                 style: TextButton.styleFrom(
-                    fixedSize: const Size(185, 40),
-                   side: const BorderSide(
-                     color: Colors.black,
-
-                   )
-                 ),
-
+                  },
+                  style: TextButton.styleFrom(
+                      fixedSize: const Size(185, 40),
+                      side: const BorderSide(
+                        color: Colors.black,
+                      )),
                   child: const Row(
-                children: [
-                  Icon(
-                    Icons.add_circle_outline_sharp,
-                    size: 20,
+                    children: [
+                      Icon(
+                        Icons.add_circle_outline_sharp,
+                        size: 20,
                       ),
-
-                  const SizedBox(
-                    width: 10,
-                  ),
-
-                  Text(
-                    'Add team member',
-                    style: TextStyle(
-                      fontSize: 18,
-                    )
-                  )
-                ],
-              )),
-
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Add team member',
+                          style: TextStyle(
+                            fontSize: 18,
+                          ))
+                    ],
+                  )),
               const SizedBox(
                 height: 20,
               ),
-
               const Text(
                 'Funding',
                 style: TextStyle(
@@ -320,7 +302,6 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   height: 2,
                 ),
               ),
-
               const Text(
                 'What is the minimum you are willing to accept?',
                 style: TextStyle(
@@ -330,35 +311,28 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   height: 2,
                 ),
               ),
-
               const SizedBox(
                 height: 10,
               ),
-
               TextField(
                 style: const TextStyle(
                   fontSize: 20,
                 ),
-
-                onChanged: (value){
-                },
+                onChanged: (value) {},
                 decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 20.0, horizontal: 10),
                     filled: true,
                     fillColor: const Color(0xffF1F5FD),
                     labelText: '500br',
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(15),
-                    )
-                ),
+                    )),
               ),
-
               const SizedBox(
                 height: 15,
               ),
-
-
               const Text(
                 'Terms',
                 style: TextStyle(
@@ -368,8 +342,6 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   height: 2,
                 ),
               ),
-
-
               const Text(
                 'Choose an investment contract',
                 style: TextStyle(
@@ -379,20 +351,18 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   height: 2,
                 ),
               ),
-
-
-    ListTile(
-    title: const Text('Future Equity'),
-    leading: Radio<InvestmentContract>(
-    value: InvestmentContract.futureEquity,
-    groupValue: contract,
-    onChanged: (InvestmentContract? value) {
-      setState(() {
-        contract=value;
-      });
-    },
-    ),
-    ),
+              ListTile(
+                title: const Text('Future Equity'),
+                leading: Radio<InvestmentContract>(
+                  value: InvestmentContract.futureEquity,
+                  groupValue: contract,
+                  onChanged: (InvestmentContract? value) {
+                    setState(() {
+                      contract = value;
+                    });
+                  },
+                ),
+              ),
               ListTile(
                 title: const Text('Convertible Note'),
                 leading: Radio<InvestmentContract>(
@@ -400,12 +370,11 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   groupValue: contract,
                   onChanged: (InvestmentContract? value) {
                     setState(() {
-                      contract=value;
+                      contract = value;
                     });
                   },
                 ),
               ),
-
               ListTile(
                 title: const Text('Revenue Share'),
                 leading: Radio<InvestmentContract>(
@@ -413,7 +382,7 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   groupValue: contract,
                   onChanged: (InvestmentContract? value) {
                     setState(() {
-                      contract=value;
+                      contract = value;
                     });
                   },
                 ),
@@ -425,12 +394,11 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   groupValue: contract,
                   onChanged: (InvestmentContract? value) {
                     setState(() {
-                      contract=value;
+                      contract = value;
                     });
                   },
                 ),
               ),
-
               ListTile(
                 title: const Text('Preferred Stock'),
                 leading: Radio<InvestmentContract>(
@@ -438,7 +406,7 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   groupValue: contract,
                   onChanged: (InvestmentContract? value) {
                     setState(() {
-                      contract=value;
+                      contract = value;
                     });
                   },
                 ),
@@ -450,112 +418,111 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   groupValue: contract,
                   onChanged: (InvestmentContract? value) {
                     setState(() {
-                      contract=value;
+                      contract = value;
                     });
                   },
                 ),
               ),
-
-
-    ],
+            ],
           ),
         ),
       ),
     );
   }
 
-  void addTeamMember(){
+  void addTeamMember() {
     showModalBottomSheet(
         context: context,
-        builder: (BuildContext context){
-
-        return Container(
-          height: 300,
-          padding: EdgeInsets.all(30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Full name',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-
-
-
-              TextField(
-                style: const TextStyle(
-                  fontSize: 20,
-                ),
-                onChanged: (value){
-
-                },
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric( horizontal: 10),
-                    filled: true,
-                    fillColor: const Color(0xffF1F5FD),
-                    labelText: 'Name',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15),
-                    )
-                ),
-              ),
-
-              Text(
-                'Email',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-
-              TextField(
-                style: const TextStyle(
-                  fontSize: 20,
-                ),
-                onChanged: (value){
-
-                },
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric( horizontal: 10),
-                    filled: true,
-                    fillColor: const Color(0xffF1F5FD),
-                    labelText: 'email',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(15),
-                    )
-                ),
-              ),
-
-              ElevatedButton(
-                  onPressed: (){
-
-                  },
-
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xff264065),
-                    fixedSize: Size(double.maxFinite, 50)
+        builder: (BuildContext context) {
+          return Container(
+            height: 300,
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Full name',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
                   ),
-
-                  child: Text(
+                ),
+                TextField(
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                  onChanged: (value) {},
+                  decoration: InputDecoration(
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
+                      filled: true,
+                      fillColor: const Color(0xffF1F5FD),
+                      labelText: 'Name',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
+                      )),
+                ),
+                const Text(
+                  'Email',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                TextField(
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                  onChanged: (value) {},
+                  decoration: InputDecoration(
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 10),
+                      filled: true,
+                      fillColor: const Color(0xffF1F5FD),
+                      labelText: 'email',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(15),
+                      )),
+                ),
+                ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xff264065),
+                        fixedSize: const Size(double.maxFinite, 50)),
+                    child: const Text(
                       'Add member',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  )),
-
-            ],
-          ),
-        );
-
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    )),
+              ],
+            ),
+          );
         });
+  }
+
+  Future getFile() async{
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+    type: FileType.custom,
+      allowedExtensions: ['ppt', 'pptx', 'pdf'],
+    );
+    if (result != null) {
+
+      setState(() {
+
+        file = File(result.files.single.path!);
+
+      });
+    }
+    else
+      {
+        const Text('No file selected');
+      }
   }
 
 }

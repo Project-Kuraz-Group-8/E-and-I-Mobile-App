@@ -549,7 +549,6 @@ class _BuildPitchPageState extends State<BuildPitchPage> {
 
         video = File(pickedFile.path);
         videoPlayer = VideoPlayerController.file(video!);
-        videoPlayer!.play();
 
       });
     }
