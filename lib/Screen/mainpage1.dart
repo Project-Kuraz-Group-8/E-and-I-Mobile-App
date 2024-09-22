@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hasab/Screen/founderHomePage.dart';
 import 'package:hasab/Screen/ideaPage.dart';
 
 void main() {
@@ -25,10 +24,10 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   int _selectedIndex = 0;
 
   static List<Widget> _pages = <Widget>[
-    FounderHomePage(),
+    const Center(child: Text('Home')),
     PeopleScreen(),
     IdeaPage(),
-    Center(child: Text('Inbox')),
+    const Center(child: Text('Inbox')),
   ];
 
   void _onItemTapped(int index) {
@@ -45,7 +44,8 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
-        backgroundColor: Color(0xFFFFFFFF), // Navigation bar color #FFFFFF
+        backgroundColor:
+            const Color(0xFFFFFFFF), // Navigation bar color #FFFFFF
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -85,7 +85,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'People',
           style: TextStyle(
             fontSize: 32,
@@ -121,11 +121,11 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: Icon(Icons.filter_list),
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: CustomMinusIcon(),
                 hintText: 'Search',
                 filled: true,
                 fillColor: Colors.white, // #FFFFFF for input box
@@ -135,12 +135,13 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             _showInvestors ? _buildInvestorsList() : _buildCoFoundersList(),
           ],
         ),
       ),
-      backgroundColor: Color(0xFFF5F9FF), // Blue-white tone for background
+      backgroundColor:
+          const Color(0xFFF5F9FF), // Blue-white tone for background
     );
   }
 
@@ -156,11 +157,11 @@ class _PeopleScreenState extends State<PeopleScreen> {
             ? Colors.white // White text for active button
             : Colors.black,
         backgroundColor: isActive
-            ? Color(0xFF264065) // Active color #264065
-            : Color(0xFFD9D9D9),
-        fixedSize: Size(156, 40), // Fixed width (156px) and height (40px)
+            ? const Color(0xFF264065) // Active color #264065
+            : const Color(0xFFD9D9D9),
+        fixedSize: const Size(156, 40), // Fixed width (156px) and height (40px)
         padding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(8.0),
           ),
@@ -184,14 +185,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
                   8, 12, 8, 8), // Adjusted gap from top
               decoration: BoxDecoration(
                 color: Colors.white, // #FFFFFF for profile container
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(16.0), // Border-radius (16px, 0px, 0px, 0px)
                 ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),
                     blurRadius: 10,
-                    offset: Offset(0, 5),
+                    offset: const Offset(0, 5),
                   ),
                 ],
               ),
@@ -200,13 +201,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 25, // width and height of CircleAvatar (50px)
                         backgroundImage: NetworkImage(
                             'https://via.placeholder.com/150'), // Replace with actual image
                       ),
-                      SizedBox(width: 12), // No gap between avatar and name
-                      Expanded(
+                      const SizedBox(
+                          width: 12), // No gap between avatar and name
+                      const Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment
                               .start, // Align name to the start
@@ -228,7 +230,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8.0, right: 8.0),
                           child: IconButton(
-                            icon: Icon(Icons.more_vert),
+                            icon: const Icon(Icons.more_vert),
                             onPressed: () {
                               // Profile actions
                             },
@@ -237,20 +239,21 @@ class _PeopleScreenState extends State<PeopleScreen> {
                       ),
                     ],
                   ),
-                  Spacer(), // Push the buttons to the bottom of the container
+                  const Spacer(), // Push the buttons to the bottom of the container
                   Row(
                     mainAxisAlignment:
                         MainAxisAlignment.end, // Align buttons to the left
                     children: [
                       _buildSkillButton('Design', color: Colors.white),
-                      SizedBox(
+                      const SizedBox(
                           width: 5), // 4px gap between the first two buttons
                       _buildSkillButton('User Experience', color: Colors.white),
-                      SizedBox(width: 9),
+                      const SizedBox(width: 9),
                       _buildSkillButton(
                         'Seed',
-                        color: Color(0xFFEFE0F5), // Color for "Seed" button
-                        textColor: Color(0xFFC76CEC),
+                        color:
+                            const Color(0xFFEFE0F5), // Color for "Seed" button
+                        textColor: const Color(0xFFC76CEC),
                       ),
                     ],
                   ),
@@ -268,14 +271,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Recommended for you',
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Container(
             height: 280, // Height for the profile container
             child: ListView.builder(
@@ -285,9 +288,10 @@ class _PeopleScreenState extends State<PeopleScreen> {
                 return Container(
                   width: 212.85, // Set width Hug (212.85px)
                   height: 280, // Set height Hug (280px)
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                  margin: EdgeInsets.only(right: 8),
-                  decoration: BoxDecoration(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                  margin: const EdgeInsets.only(right: 8),
+                  decoration: const BoxDecoration(
                     color: Color(0xFFFFFFFF), // Background color #FFFFFF
                     borderRadius: BorderRadius.all(
                       Radius.circular(16),
@@ -303,7 +307,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           CircleAvatar(
                             radius: 40,
@@ -330,17 +334,18 @@ class _PeopleScreenState extends State<PeopleScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 8),
+                      const Text(
                           'Lorem ipsum dolor sit amet consectetur. Amet tellus sit magnis velit. adipiscing ipsum facilisi malesuada.'),
-                      Divider(color: Colors.grey),
+                      const Divider(color: Colors.grey),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _buildSkillButton('Design', color: Color(0xFFFFFFFF)),
+                          _buildSkillButton('Design',
+                              color: const Color(0xFFFFFFFF)),
                           _buildSkillButton(
                             'User Experience',
-                            color: Color(0xFFFFFFFF),
+                            color: const Color(0xFFFFFFFF),
                           ),
                         ],
                       ),
@@ -349,12 +354,12 @@ class _PeopleScreenState extends State<PeopleScreen> {
                         children: [
                           _buildSkillButton(
                             'Connect',
-                            color: Color(0xFF264065),
+                            color: const Color(0xFF264065),
                             textColor: Colors.white,
                           ),
                           _buildSkillButton(
                             'View Profile',
-                            color: Color(0xFFD9D9D9),
+                            color: const Color(0xFFD9D9D9),
                           ),
                         ],
                       ),
@@ -364,15 +369,15 @@ class _PeopleScreenState extends State<PeopleScreen> {
               },
             ),
           ),
-          SizedBox(height: 16),
-          Text(
+          const SizedBox(height: 16),
+          const Text(
             'Connected',
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Expanded(
             child: ListView.builder(
               itemCount: 3, // Replace with actual data
@@ -383,7 +388,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                     width: 328, // Set width 328px
                     height: 82, // Set height 82px
                     padding: const EdgeInsets.fromLTRB(13, 8, 6, 0),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFFFFFFFF), // Background color #FFFFFF
                       borderRadius: BorderRadius.all(
                         Radius.circular(16),
@@ -401,25 +406,25 @@ class _PeopleScreenState extends State<PeopleScreen> {
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               radius: 25,
                               backgroundImage: NetworkImage(
                                   'https://via.placeholder.com/150'),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 8,
                             ),
-                            Text(
+                            const Text(
                               'Hemen Daniel',
                               style: TextStyle(fontSize: 25),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 70,
                             ),
                             Align(
                               alignment: Alignment.topRight,
                               child: IconButton(
-                                icon: Icon(Icons.more_vert),
+                                icon: const Icon(Icons.more_vert),
                                 onPressed: () {
                                   // Action for the three dots button
                                 },
@@ -427,11 +432,11 @@ class _PeopleScreenState extends State<PeopleScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Row(
+                            const Row(
                               children: [
                                 SizedBox(
                                   width: 50,
@@ -452,14 +457,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
                             Row(
                               children: [
                                 Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 4, vertical: 2),
                                   decoration: BoxDecoration(
-                                    color: Color(
+                                    color: const Color(
                                         0xFFF8EDCD), // Background color for text
                                     borderRadius: BorderRadius.circular(4),
                                   ),
-                                  child: Row(
+                                  child: const Row(
                                     children: [
                                       Icon(
                                         Icons.lightbulb_outline,
@@ -498,7 +503,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
     Color? textColor,
   }) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
         color: color ?? Colors.grey[300],
         borderRadius: BorderRadius.circular(8),
@@ -509,6 +514,37 @@ class _PeopleScreenState extends State<PeopleScreen> {
           color: textColor ?? Colors.black,
           fontWeight: FontWeight.bold,
         ),
+      ),
+    );
+  }
+}
+
+class CustomMinusIcon extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 16,
+            height: 2,
+            color: Colors.black,
+          ),
+          const SizedBox(height: 4),
+          Container(
+            width: 12,
+            height: 2,
+            color: Colors.black,
+          ),
+          const SizedBox(height: 4),
+          Container(
+            width: 8,
+            height: 2,
+            color: Colors.black,
+          ),
+        ],
       ),
     );
   }
