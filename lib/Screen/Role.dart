@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hasab/Screen/ProfileSet.dart';
+import 'package:hasab/Screen/investorscreens/ProfileSet.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -43,7 +45,7 @@ class RoleSelectionPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => ProfileSetupScreen(),
+                            pageBuilder: (context, animation, secondaryAnimation) => ProfileSetupScreeni(),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               // Define the offset for the slide transition
                               const begin = Offset(1.0, 0.0); // Start from right
@@ -92,7 +94,7 @@ class RoleSelectionPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => EntrepreneurPage(),
+                            pageBuilder: (context, animation, secondaryAnimation) => ProfileSetupScreen(),
                             transitionsBuilder: (context, animation, secondaryAnimation, child) {
                               // Define the offset for the slide transition
                               const begin = Offset(1.0, 0.0); // Start from right

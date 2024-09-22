@@ -3,12 +3,12 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:hasab/Screen/profileSet4.dart';
 
-class SecondPage extends StatefulWidget {
+class SecondPagei extends StatefulWidget {
   @override
-  _SecondPageState createState() => _SecondPageState();
+  _SecondPageiState createState() => _SecondPageiState();
 }
 
-class _SecondPageState extends State<SecondPage> {
+class _SecondPageiState extends State<SecondPagei> {
   File? _image;
 
   Future<void> _pickImage() async {
@@ -35,7 +35,7 @@ class _SecondPageState extends State<SecondPage> {
               "Would you like to add your photo or your company's logo?",
               style: TextStyle(
                 fontFamily: 'Inter',
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.w400,
                 height: 1.33, // Line height: 32px / Font size: 24px
                 color: Color(0xFF000000),
@@ -133,4 +133,3 @@ class _SecondPageState extends State<SecondPage> {
     );
   }
 }
-

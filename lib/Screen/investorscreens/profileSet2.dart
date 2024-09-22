@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hasab/Screen/profileSet3.dart';
+import 'package:hasab/Screen/investorscreens/profileSet3.dart';
 
-class FirstPage extends StatefulWidget {
+
+class FirstPagei extends StatefulWidget {
   @override
-  _FirstPageState createState() => _FirstPageState();
+  _FirstPageiState createState() => _FirstPageiState();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class _FirstPageiState extends State<FirstPagei> {
   double _progress = 0.33; // 1/3 for the first page
 
   void _goToNextPage() {
@@ -16,7 +17,7 @@ class _FirstPageState extends State<FirstPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SecondPage(),
+        builder: (context) => SecondPagei(),
       ),
     );
   }
@@ -58,7 +59,7 @@ class _FirstPageState extends State<FirstPage> {
                       decoration: BoxDecoration(
                         color: Color(0xFFF1F5FD), // #F1F5FD background color
                         borderRadius: BorderRadius.all(
-                          Radius.circular(16),
+                           Radius.circular(16),
                         ),
                       ),
                       child: TextField(
@@ -101,7 +102,7 @@ class _FirstPageState extends State<FirstPage> {
                       decoration: BoxDecoration(
                         color: Color(0xFFF1F5FD), // #F1F5FD background color
                         borderRadius: BorderRadius.all(
-                          Radius.circular(14),
+                           Radius.circular(14),
                         ),
                       ),
                       child: TextField(

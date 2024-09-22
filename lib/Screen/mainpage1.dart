@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hasab/Screen/founderHomePage.dart';
+import 'package:hasab/Screen/ideaPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,9 +25,9 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
   int _selectedIndex = 0;
 
   static List<Widget> _pages = <Widget>[
-    Center(child: Text('Home')),
+    FounderHomePage(),
     PeopleScreen(),
-    Center(child: Text('Ideas')),
+    IdeaPage(),
     Center(child: Text('Inbox')),
   ];
 
@@ -123,7 +125,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
             TextField(
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.search),
-                suffixIcon: CustomMinusIcon(),
+                suffixIcon: Icon(Icons.filter_list),
                 hintText: 'Search',
                 filled: true,
                 fillColor: Colors.white, // #FFFFFF for input box
@@ -178,7 +180,8 @@ class _PeopleScreenState extends State<PeopleScreen> {
             child: Container(
               width: 331, // Fixed width (331px)
               height: 124, // Fixed height (106px)
-              padding: const EdgeInsets.fromLTRB(8, 12, 8, 8), // Adjusted gap from top
+              padding: const EdgeInsets.fromLTRB(
+                  8, 12, 8, 8), // Adjusted gap from top
               decoration: BoxDecoration(
                 color: Colors.white, // #FFFFFF for profile container
                 borderRadius: BorderRadius.all(
@@ -205,12 +208,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
                       SizedBox(width: 12), // No gap between avatar and name
                       Expanded(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start, // Align name to the start
+                          crossAxisAlignment: CrossAxisAlignment
+                              .start, // Align name to the start
                           children: [
                             Text(
                               'Yohannes Zewdu',
                               style: TextStyle(
-                                fontSize: 18, // Larger font size for investor name
+                                fontSize:
+                                    18, // Larger font size for investor name
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -218,7 +223,8 @@ class _PeopleScreenState extends State<PeopleScreen> {
                         ),
                       ),
                       Align(
-                        alignment: Alignment.topRight, // Align the 3 dots to the top right corner
+                        alignment: Alignment
+                            .topRight, // Align the 3 dots to the top right corner
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8.0, right: 8.0),
                           child: IconButton(
@@ -233,10 +239,12 @@ class _PeopleScreenState extends State<PeopleScreen> {
                   ),
                   Spacer(), // Push the buttons to the bottom of the container
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end, // Align buttons to the left
+                    mainAxisAlignment:
+                        MainAxisAlignment.end, // Align buttons to the left
                     children: [
                       _buildSkillButton('Design', color: Colors.white),
-                      SizedBox(width: 5), // 4px gap between the first two buttons
+                      SizedBox(
+                          width: 5), // 4px gap between the first two buttons
                       _buildSkillButton('User Experience', color: Colors.white),
                       SizedBox(width: 9),
                       _buildSkillButton(
@@ -282,7 +290,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                   decoration: BoxDecoration(
                     color: Color(0xFFFFFFFF), // Background color #FFFFFF
                     borderRadius: BorderRadius.all(
-                       Radius.circular(16),
+                      Radius.circular(16),
                     ),
                     boxShadow: [
                       BoxShadow(
@@ -300,7 +308,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                           CircleAvatar(
                             radius: 40,
                             backgroundImage:
-                            NetworkImage('https://via.placeholder.com/150'),
+                                NetworkImage('https://via.placeholder.com/150'),
                           ),
                           Column(
                             children: [
@@ -320,11 +328,11 @@ class _PeopleScreenState extends State<PeopleScreen> {
                               ),
                             ],
                           ),
-
                         ],
                       ),
                       SizedBox(height: 8),
-                      Text('Lorem ipsum dolor sit amet consectetur. Amet tellus sit magnis velit. adipiscing ipsum facilisi malesuada.'),
+                      Text(
+                          'Lorem ipsum dolor sit amet consectetur. Amet tellus sit magnis velit. adipiscing ipsum facilisi malesuada.'),
                       Divider(color: Colors.grey),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -378,7 +386,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
                     decoration: BoxDecoration(
                       color: Color(0xFFFFFFFF), // Background color #FFFFFF
                       borderRadius: BorderRadius.all(
-                         Radius.circular(16),
+                        Radius.circular(16),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -398,9 +406,16 @@ class _PeopleScreenState extends State<PeopleScreen> {
                               backgroundImage: NetworkImage(
                                   'https://via.placeholder.com/150'),
                             ),
-                            SizedBox(width: 8,),
-                            Text('Hemen Daniel',style: TextStyle(fontSize: 25),),
-                            SizedBox(width: 70,),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              'Hemen Daniel',
+                              style: TextStyle(fontSize: 25),
+                            ),
+                            SizedBox(
+                              width: 70,
+                            ),
                             Align(
                               alignment: Alignment.topRight,
                               child: IconButton(
@@ -416,31 +431,32 @@ class _PeopleScreenState extends State<PeopleScreen> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-
                             Row(
                               children: [
-                                SizedBox(width: 50,),
+                                SizedBox(
+                                  width: 50,
+                                ),
                                 Icon(Icons.access_time, size: 16),
                                 SizedBox(width: 4),
                                 Text(
                                   'Active',
                                   style: TextStyle(
-                                    color: Color(0xFF0DADF2), // Text color for "Active"
+                                    color: Color(
+                                        0xFF0DADF2), // Text color for "Active"
                                     backgroundColor: Color(0xFFECFAFD),
                                   ),
                                 ),
                                 SizedBox(width: 50),
-
                               ],
                             ),
-
                             Row(
                               children: [
                                 Container(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 4, vertical: 2),
                                   decoration: BoxDecoration(
-                                    color: Color(0xFFF8EDCD), // Background color for text
+                                    color: Color(
+                                        0xFFF8EDCD), // Background color for text
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Row(
@@ -477,10 +493,10 @@ class _PeopleScreenState extends State<PeopleScreen> {
   }
 
   Widget _buildSkillButton(
-      String label, {
-        Color? color,
-        Color? textColor,
-      }) {
+    String label, {
+    Color? color,
+    Color? textColor,
+  }) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
@@ -493,37 +509,6 @@ class _PeopleScreenState extends State<PeopleScreen> {
           color: textColor ?? Colors.black,
           fontWeight: FontWeight.bold,
         ),
-      ),
-    );
-  }
-}
-
-class CustomMinusIcon extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 16,
-            height: 2,
-            color: Colors.black,
-          ),
-          SizedBox(height: 4),
-          Container(
-            width: 12,
-            height: 2,
-            color: Colors.black,
-          ),
-          SizedBox(height: 4),
-          Container(
-            width: 8,
-            height: 2,
-            color: Colors.black,
-          ),
-        ],
       ),
     );
   }

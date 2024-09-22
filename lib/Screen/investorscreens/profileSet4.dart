@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hasab/Screen/profileSet5.dart';
+import 'package:hasab/Screen/investorscreens/profileSet5.dart';
+
 
 class ThirdPage extends StatefulWidget {
   @override
@@ -109,7 +110,7 @@ class _ThirdPageState extends State<ThirdPage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LastPage()),
+                          MaterialPageRoute(builder: (context) => LastPagei()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
