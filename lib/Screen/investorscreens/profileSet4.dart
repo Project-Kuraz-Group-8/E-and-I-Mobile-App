@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hasab/Screen/investorscreens/profileSet5.dart';
 
-
-class ThirdPage extends StatefulWidget {
+class ThirdPagei extends StatefulWidget {
   @override
-  _ThirdPageState createState() => _ThirdPageState();
+  _ThirdPageiState createState() => _ThirdPageiState();
 }
 
-class _ThirdPageState extends State<ThirdPage> {
+class _ThirdPageiState extends State<ThirdPagei> {
   // Keep track of the selected industry
   int? _selectedIndex;
 
@@ -65,17 +64,13 @@ class _ThirdPageState extends State<ThirdPage> {
                     _buildSocialInputBox(
                         context,
                         "https://www.linkedin.com/in/",
-                        FontAwesomeIcons.linkedinIn
-                    ),
+                        FontAwesomeIcons.linkedinIn),
                     SizedBox(
                       height: 12,
                     ),
                     // Add Twitter Input Box
-                    _buildSocialInputBox(
-                        context,
-                        "https://www.twitter.com/in/",
-                        FontAwesomeIcons.twitter
-                    ),
+                    _buildSocialInputBox(context, "https://www.twitter.com/in/",
+                        FontAwesomeIcons.twitter),
                     SizedBox(
                       height: 12,
                     ),
@@ -83,8 +78,7 @@ class _ThirdPageState extends State<ThirdPage> {
                     _buildSocialInputBox(
                         context,
                         "https://www.facebook.com/in/",
-                        FontAwesomeIcons.facebookF
-                    ),
+                        FontAwesomeIcons.facebookF),
                   ],
                 ),
               ),
@@ -150,7 +144,8 @@ class _ThirdPageState extends State<ThirdPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (isSelected)
-              Icon(Icons.check, color: Colors.white, size: 16), // Checkmark icon
+              Icon(Icons.check,
+                  color: Colors.white, size: 16), // Checkmark icon
             SizedBox(width: isSelected ? 8 : 0), // Space if selected
             Text(
               label,
@@ -165,7 +160,8 @@ class _ThirdPageState extends State<ThirdPage> {
     );
   }
 
-  Widget _buildSocialInputBox(BuildContext context, String placeholder, IconData icon) {
+  Widget _buildSocialInputBox(
+      BuildContext context, String placeholder, IconData icon) {
     return Container(
       width: 328,
       height: 56,

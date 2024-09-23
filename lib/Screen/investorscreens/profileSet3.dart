@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:hasab/Screen/profileSet4.dart';
+import 'package:hasab/Screen/investorscreens/profileSet4.dart';
 
 class SecondPagei extends StatefulWidget {
   @override
@@ -13,7 +13,8 @@ class _SecondPageiState extends State<SecondPagei> {
 
   Future<void> _pickImage() async {
     final ImagePicker picker = ImagePicker();
-    final XFile? pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
         _image = File(pickedFile.path);
@@ -104,7 +105,7 @@ class _SecondPageiState extends State<SecondPagei> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ThirdPage()),
+                      MaterialPageRoute(builder: (context) => ThirdPagei()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -120,7 +121,6 @@ class _SecondPageiState extends State<SecondPagei> {
       ),
     );
   }
-
 
   Widget _buildProgressLine(bool isActive) {
     return Container(
