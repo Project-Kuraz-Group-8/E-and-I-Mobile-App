@@ -30,7 +30,6 @@ class ProfileSetupScreeni extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
 
                 // 2nd: Animation from the link using Lottie
                 Lottie.network(
@@ -39,7 +38,6 @@ class ProfileSetupScreeni extends StatelessWidget {
                   width: 330,
                   fit: BoxFit.cover,
                 ),
-                const SizedBox(height: 20),
 
                 // 3rd: Two buttons (Continue and Skip for now)
                 Column(
