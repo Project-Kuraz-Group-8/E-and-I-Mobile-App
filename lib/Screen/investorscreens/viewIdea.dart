@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hasab/Screen/investorscreens/Invest1.dart';
 
 
 class ViewIdea extends StatefulWidget {
@@ -275,6 +276,10 @@ class _ViewIdeaState extends State<ViewIdea> {
                                 child: TextButton(
                                     onPressed: () {
 
+                                      Navigator.push(context,
+                                      MaterialPageRoute(builder: (context){
+                                        return Invest1();
+                                      }));
                                     },
                                     child:
                                     const Text(
@@ -328,11 +333,11 @@ class _ViewIdeaState extends State<ViewIdea> {
 
 
                     SizedBox(
-                      width: 105,
+                      width: 120,
                       child: TextButton(
                         onPressed: () {
                           showModalBottomSheet(context: context,
-                              
+
                               builder: (BuildContext context) {
                                 return SingleChildScrollView(
                                   child: SizedBox(
