@@ -47,9 +47,20 @@ class _ChatScreenState extends State<ChatScreen> {
                     children: [
                       ToggleButtons(
                           children: [
-                            Text('All'),
-                            Text('Cofounders'),
-                            Text('Investors')
+                            Text('All',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                            ),
+                            Text('Cofounders',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                            ),
+                            Text('Investors',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ))
                           ],
                           isSelected: selected,
                       onPressed: (int index){
@@ -61,15 +72,54 @@ class _ChatScreenState extends State<ChatScreen> {
 
                             });
                       },
-                        selectedColor: Color(0xff264065),
+                        selectedColor: Colors.blue[900],
                         disabledColor: Color(0xffA9D6CBB2),
                         constraints: BoxConstraints(
                           minHeight: 40,
                           minWidth: 100,
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 328,
+                        margin: EdgeInsets.only(bottom: 12),
+                        padding: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            TextButton(
+                              onPressed:(){
+
+                             },
+                              child: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage: NetworkImage(
+                                      'https://th.bing.com/th/id/R.50b75a289fa726538066a479953a145a?rik=3jntFvTKUScxyg&pid=ImgRaw&r=0')),
+                            ),
+                            SizedBox(width: 12),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Abebe',
+                                    style: TextStyle(fontWeight: FontWeight.bold)),
+                                Text('Sure, we can proceed to negotiations here.',
+                                    style: TextStyle(fontSize: 12)),
+                              ],
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
         

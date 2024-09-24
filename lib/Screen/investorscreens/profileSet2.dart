@@ -25,7 +25,7 @@ class _FirstPageiState extends State<FirstPagei> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('First Page')),
+      appBar: AppBar(title: Text('set your profile')),
       body: SafeArea(
         child: Column(
           children: [

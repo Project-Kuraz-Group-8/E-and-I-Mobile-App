@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hasab/Screen/founderHomePage.dart';
 import 'package:hasab/Screen/ideaPage.dart';
+import 'package:hasab/Screen/investorscreens/chatScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +30,7 @@ class _BottomNavigationExampleState extends State<BottomNavigationExample> {
     FounderPage(),
     PeopleScreen(),
     IdeaPage(),
-    const Center(child: Text('Inbox')),
+    ChatScreen(),
   ];
 
   void _onItemTapped(int index) {

@@ -24,7 +24,7 @@ class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Second Page')),
+      appBar: AppBar(title: Text('set your profile')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
