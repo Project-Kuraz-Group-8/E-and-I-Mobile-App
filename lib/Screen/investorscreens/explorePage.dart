@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hasab/Screen/investorscreens/viewIdea.dart';
 
 class ExploreScreen extends StatelessWidget {
   @override
@@ -134,7 +135,13 @@ class ExploreScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+
+                          Navigator.push(context,
+                          MaterialPageRoute(builder: (context){
+                            return const ViewIdea();
+                          }));
+                          },
                           child: Text('Read More'),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
@@ -263,7 +270,10 @@ class ExploreScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            ViewIdea();
+
+                          },
                           child: Text('Read More'),
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Services/api_services.dart';
+
 
 class FounderPage extends StatelessWidget {
   const FounderPage({super.key});
@@ -22,8 +24,19 @@ class FounderHomePage extends StatefulWidget {
 }
 
 class _FounderHomePageState extends State<FounderHomePage> {
-  String firstName = 'Hiwot';
-  String lastName = 'Tadesse';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    data = ApiServices.fetchData();
+
+  }
+
+
+  late Future<List<dynamic>> data;
+
+  String name = 'Hiwot';
   var profileViews = 0;
   var ratings = 0;
   var comments = 0;
@@ -35,9 +48,9 @@ class _FounderHomePageState extends State<FounderHomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      
+
       child: Scaffold(
-        
+
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -69,13 +82,13 @@ class _FounderHomePageState extends State<FounderHomePage> {
                             fontSize: 20,
                           ),
                         ),
-          
+
                         const SizedBox(
                           height: 10,
                         ),
-          
+
                         Text(
-                          '$firstName $lastName',
+                            name,
                           style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w600,
@@ -92,11 +105,11 @@ class _FounderHomePageState extends State<FounderHomePage> {
                     ),
                   ],
                 ),
-          
+
                 const SizedBox(
                   height: 20,
                 ),
-          
+
                 SizedBox(
                   width: double.infinity,
                   child: TextField(
@@ -223,7 +236,7 @@ class _FounderHomePageState extends State<FounderHomePage> {
                                           color: Colors.white,
                                         ),
                                       ),
-          
+
                                       const Text(
                                         'Comments',
                                         style: TextStyle(
@@ -254,18 +267,18 @@ class _FounderHomePageState extends State<FounderHomePage> {
                         ],
                       ),
                     ),
-          
+
                     const SizedBox(
                       width:15,
                     ),
-          
+
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
                             //AMOUNT INVESTED
-                      
+
                             margin: const EdgeInsets.only(
                               top: 30,
                             ),
@@ -453,7 +466,7 @@ class _FounderHomePageState extends State<FounderHomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: const Color(0xff264065),
-          
+
                       ),
                       child: Text('$newRequests',
                           textAlign: TextAlign.center,
@@ -462,7 +475,7 @@ class _FounderHomePageState extends State<FounderHomePage> {
                             fontSize: 25,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
-          
+
                           )),
                     )
                   ],

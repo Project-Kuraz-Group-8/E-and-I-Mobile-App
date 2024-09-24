@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hasab/Screen/Role.dart';
-
+import 'package:hasab/Services/api_services.dart';
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
@@ -17,6 +17,11 @@ class _SignUpPageState extends State<SignUpPage> {
   String email = '';
   String name = '';
   String confirmPassword = '';
+  String role = '';
+  String location = '';
+  String bio = '';
+  String social_media_link = '';
+  String phone_number = '';
 
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
@@ -69,6 +74,20 @@ class _SignUpPageState extends State<SignUpPage> {
     print(name);
     print(email);
     print(password);
+
+    ApiServices.sendingData(
+      name,
+      email,
+      password,
+      role,
+      phone_number,
+      social_media_link,
+      location,
+      bio,
+
+
+    );
+
   }
 
   @override

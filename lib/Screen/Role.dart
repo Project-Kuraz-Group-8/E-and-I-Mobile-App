@@ -34,7 +34,6 @@ class RoleSelectionPage extends StatelessWidget {
               'Select one that applies to you',
               style: TextStyle(fontSize: 25),
             ),
-            SizedBox(height: 0),
             Expanded(
               child: Center(
                 child: Column(
@@ -65,25 +64,27 @@ class RoleSelectionPage extends StatelessWidget {
                         );
 
                       },
-                      child: Container(
-                        height: 222,
-                        width: 168,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFA3D1ED),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.attach_money, size: 100, color: Colors.black),
-                              SizedBox(height: 10),
-                              Text(
-                                'Investor',
-                                style: TextStyle(fontSize: 25, color: Colors.black),
-                              ),
-                            ],
+                      child: Expanded(
+                        child: Container(
+                          height: 222,
+                          width: 168,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFA3D1ED),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.attach_money, size: 100, color: Colors.black),
+                                SizedBox(height: 10),
+                                Text(
+                                  'Investor',
+                                  style: TextStyle(fontSize: 25, color: Colors.black),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

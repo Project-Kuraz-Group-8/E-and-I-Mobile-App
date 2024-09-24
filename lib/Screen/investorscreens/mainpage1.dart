@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hasab/Screen/investorscreens/explorePage.dart';
 import 'package:hasab/Screen/investorscreens/profilePage.dart';
 
+import 'chatScreen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -48,12 +50,12 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.pie_chart), label: 'Portfolio'),
+          BottomNavigationBarItem(icon: Icon(Icons.pie_chart), label: 'Portfolio'),
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
         ],
         backgroundColor: Color(0xFFFFFFFF),
         selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.blue[100],
       ),
     );
   }
@@ -433,11 +435,4 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class ChatScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Chat Screen'),
-    );
-  }
-}
+

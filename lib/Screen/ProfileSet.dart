@@ -29,7 +29,6 @@ class ProfileSetupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
 
                 // 2nd: Animation from the link using Lottie
                 Lottie.network(
@@ -38,66 +37,67 @@ class ProfileSetupScreen extends StatelessWidget {
                   width: 330,
                   fit: BoxFit.cover,
                 ),
-                const SizedBox(height: 20),
 
                 // 3rd: Two buttons (Continue and Skip for now)
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) => FirstPage(),
-                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                              // Define the offset for the slide transition
-                              const begin = Offset(1.0, 0.0); // Start from right
-                              const end = Offset.zero; // End at the center
-                              const curve = Curves.easeInOut; // Easing curve for smooth transition
-
-                              // Create the tween and animation
-                              var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                              var offsetAnimation = animation.drive(tween);
-
-                              return SlideTransition(
-                                position: offsetAnimation,
-                                child: child,
-                              );
-                            },
-                          ),
-                        );
-                        // Continue action
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF264065), // Background color
-                        minimumSize: const Size(double.infinity, 50), // Button width increased (infinity for full width)
-                        padding: const EdgeInsets.symmetric(vertical: 15), // Vertical padding adjusted
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => FirstPage(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                // Define the offset for the slide transition
+                                const begin = Offset(1.0, 0.0); // Start from right
+                                const end = Offset.zero; // End at the center
+                                const curve = Curves.easeInOut; // Easing curve for smooth transition
+                  
+                                // Create the tween and animation
+                                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                var offsetAnimation = animation.drive(tween);
+                  
+                                return SlideTransition(
+                                  position: offsetAnimation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                          // Continue action
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF264065), // Background color
+                          minimumSize: const Size(double.infinity, 50), // Button width increased (infinity for full width)
+                          padding: const EdgeInsets.symmetric(vertical: 15), // Vertical padding adjusted
+                        ),
+                        child: const Text(
+                          'Continue',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
                       ),
-                      child: const Text(
-                        'Continue',
-                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      const SizedBox(height: 18,),
+                      OutlinedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => BottomNavigationExample()),
+                          );
+                          // Skip for now action
+                        },
+                        style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 50),
+                          padding: const EdgeInsets.symmetric( vertical: 15),
+                        ),
+                        child: const Text(
+                          'Skip for now',
+                          style: TextStyle(fontSize: 16),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 18,),
-                    OutlinedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => BottomNavigationExample()),
-                        );
-                        // Skip for now action
-                      },
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size(double.infinity, 50),
-                        padding: const EdgeInsets.symmetric( vertical: 15),
-                      ),
-                      child: const Text(
-                        'Skip for now',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
