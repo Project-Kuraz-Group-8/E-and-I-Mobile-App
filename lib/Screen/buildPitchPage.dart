@@ -486,11 +486,11 @@ class _BuildPitchPageState extends State<BuildPitchPage> {
                               return const BuildPitch2();
 
                             }));
-                        //TODO
+
                       },
                       child:
                       const Text(
-                          'Save Changes',
+                          'Next',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 25,
