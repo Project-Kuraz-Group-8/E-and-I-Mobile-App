@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:hasab/Screen/ideaPage.dart';
+import 'package:hasab/Screen/investorscreens/viewIdea.dart';
 
 class BuildPitch2 extends StatefulWidget {
   const BuildPitch2({super.key});
@@ -22,18 +24,22 @@ enum InvestmentContract {
 class _BuildPitch2State extends State<BuildPitch2> {
   InvestmentContract? contract = InvestmentContract.futureEquity;
   FilePickerResult? result;
+  String newMemberEmail= '';
+  String newMemberName= '';
+
 
 
   var firstName = 'Hiwot';
   var lastName = 'Tadesse';
   var email = 'hiwottadesse3@gmail.com';
   var role = 'Founder';
-  var titleAtCompany;
-  var accomplishments;
+  var founderTitle;
+  var founderAccomplishments;
   File? file;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
           title: const Center(
@@ -133,7 +139,7 @@ class _BuildPitch2State extends State<BuildPitch2> {
                         ),
                       ),
                     ),
-                  //TODO display
+                  //TODO display file name
 
                   ],
                 ),
@@ -219,7 +225,8 @@ class _BuildPitch2State extends State<BuildPitch2> {
                         fontSize: 20,
                       ),
                       onChanged: (value) {
-                        titleAtCompany=value;                      },
+                        founderTitle=value;
+                        },
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 20.0, horizontal: 10),
@@ -239,7 +246,7 @@ class _BuildPitch2State extends State<BuildPitch2> {
                         fontSize: 20,
                       ),
                       onChanged: (value) {
-                        accomplishments=value;
+                        founderAccomplishments=value;
                       },
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.symmetric(
@@ -260,7 +267,9 @@ class _BuildPitch2State extends State<BuildPitch2> {
                     addTeamMember();
                   },
                   style: TextButton.styleFrom(
-                      fixedSize: const Size(185, 40),
+                      minimumSize: const Size(210, 40),
+                      maximumSize: const Size(250, 40),
+
                       side: const BorderSide(
                         color: Colors.black,
                       )),
@@ -324,7 +333,7 @@ class _BuildPitch2State extends State<BuildPitch2> {
                         vertical: 20.0, horizontal: 10),
                     filled: true,
                     fillColor: const Color(0xffF1F5FD),
-                    labelText: '500br',
+                    hintText: '500br',
                     border: OutlineInputBorder(
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(15),
@@ -423,6 +432,44 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   },
                 ),
               ),
+
+              Center(
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    bottom: 30, top: 20,
+                  ),
+                  width: 188,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: const Color(0xff264065)
+                  ),
+                  child: TextButton(
+                      onPressed: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(
+                                settings: RouteSettings(
+                                  arguments: {'$file', '$founderTitle'},
+                                ),
+                                builder: (context){
+                              return const ViewIdea();
+
+                            }));
+
+                      },
+                      child:
+                      const Text(
+                          'Save Changes',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25,
+                            color: Colors.white,
+
+                          )
+                      )),
+                ),
+              ),
+
             ],
           ),
         ),
@@ -452,7 +499,9 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   style: const TextStyle(
                     fontSize: 20,
                   ),
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    newMemberName=value;
+                  },
                   decoration: InputDecoration(
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10),
@@ -475,7 +524,9 @@ class _BuildPitch2State extends State<BuildPitch2> {
                   style: const TextStyle(
                     fontSize: 20,
                   ),
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    newMemberEmail=value;
+                  },
                   decoration: InputDecoration(
                       contentPadding:
                           const EdgeInsets.symmetric(horizontal: 10),
