@@ -63,7 +63,7 @@ A straightforward chat feature allows users to communicate directly after expres
 
 - **Key Features:**
   - Simple text-based messaging between **Investors** and **Entrepreneurs**
-  - No file-sharing or advanced messaging features
+    
 
 ---
 
@@ -73,7 +73,7 @@ Users receive basic notifications to keep them informed of important events with
 
 - **Key Features:**
   - Notifications for new messages or expressions of interest
-  - Real-time in-app notifications for important updates
+    
 
 ---
 
